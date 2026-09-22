@@ -1,0 +1,22 @@
+{
+    "posting_id": "p001",
+    "source_url": "https://www.amazon.jobs/en/jobs/10552937/software-development-engineer-intern-summer-2027-usa",
+    "company": "Amazon",
+    "title": "Software Development Engineer Intern - Summer 2027 (USA)",
+    "date_posted": "2026-09-18",
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "Seattle", "state": "WA", "country": "US"},
+      {"city": "Arlington", "state": "VA", "country": "US"}
+    ],
+    "work_mode": "onsite",
+    "required_skills": ["Java", "Python", "C++", "C#", "Go", "Rust", "TypeScript", "data structures", "algorithms", "object-oriented design", "AI-assisted development tools"],
+    "preferred_skills": ["cloud platforms", "AWS", "SQL", "NoSQL", "version control", "software development lifecycle"],
+    "degree_levels": ["bachelors", "masters", "phd"],
+    "grad_date_earliest": "2027-10-01",
+    "grad_date_latest": "2029-09-30",
+    "requires_work_authorization": null,
+    "sponsorship_available": null,
+    "accepts_cpt_opt": null
+  }

@@ -134,3 +134,4 @@ Skills are normalized (see Section 7) before comparison, so "Python 3" and "pyth
 - **Posting sources:** which target companies' job boards allow automated access (check each site's terms and robots.txt), and whether any offer a public API or feed.
 - **Scheduler:** how scheduled checks will run (e.g. a cron job on my Mac vs. a hosted scheduler). Decide in Week 6.
 - **Alert channel:** how alerts reach me (email, desktop notification, etc.).
+- **"One of these" skill requirements:** some postings require any one skill from a list (e.g. "at least one of Java, Python, C++…"). Listing all as required overstates the requirement and distorts the gap report. Options: a separate `required_one_of` list field, or treat the whole group as one requirement.
