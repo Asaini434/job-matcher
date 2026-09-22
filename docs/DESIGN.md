@@ -61,6 +61,7 @@ Facts about the company's job posting.
 | `degree_levels` | list of enum: `bachelors`, `masters`, `phd` | LLM | Eligible degree levels; empty list if not stated |
 | `grad_date_earliest` | date or null | LLM | Earliest graduation date accepted, if stated |
 | `grad_date_latest` | date or null | LLM | Latest graduation date accepted, if stated |
+| `min_years_experience` | number or null | LLM | Minimum years of experience stated (e.g. "6+ years" → 6, "6 months" → 0.5); null if not stated |
 | `requires_work_authorization` | boolean or null | LLM | Posting says candidates must already be authorized to work in the US |
 | `sponsorship_available` | boolean or null | LLM | Posting says whether visa sponsorship is offered |
 | `accepts_cpt_opt` | boolean or null | LLM | Posting explicitly says CPT/OPT candidates are eligible |
@@ -135,3 +136,6 @@ Skills are normalized (see Section 7) before comparison, so "Python 3" and "pyth
 - **Scheduler:** how scheduled checks will run (e.g. a cron job on my Mac vs. a hosted scheduler). Decide in Week 6.
 - **Alert channel:** how alerts reach me (email, desktop notification, etc.).
 - **"One of these" skill requirements:** some postings require any one skill from a list (e.g. "at least one of Java, Python, C++…"). Listing all as required overstates the requirement and distorts the gap report. Options: a separate `required_one_of` list field, or treat the whole group as one requirement.
+- **URL normalization:** job links often carry tracking parameters, so the same posting can appear under different URLs. Strip query parameters before duplicate checks, or rely on the company's requisition ID (e.g. Capital One's `R244285`) as `external_id`.
+- **JavaScript-rendered job pages:** some careers sites (e.g. BigBear.ai's) load the job description with JavaScript, so a plain HTTP fetch returns only the page shell. Options: find the site's underlying data feed or API if it offers one, use a headless browser, or skip those sources. Check each site's terms first.
+- **Security clearance:** p003 and p004 require clearances (TS/SCI, Secret). Consider a `clearance_required` field to flag roles I can't apply to.

@@ -23,13 +23,12 @@ A chatbot can compare one posting to one resume. It can't:
 
 | Feature | Status |
 |---|---|
-| ⭐ **New-posting alerts**: scheduled checks of target companies' job boards | ⬜ Planned |
-| ⭐ **Skill trend insights**: most-requested skills across saved postings, and my gaps | ⬜ Planned |
+| **New-posting alerts**: scheduled checks of target companies' job boards | ⬜ Planned |
+| **Skill trend insights**: most-requested skills across saved postings, and my gaps | ⬜ Planned |
 | **Requirement extraction**: posting text → structured data (required and preferred skills, degree, location, work authorization) | ⬜ Planned |
 | **Resume match and gap report**: fit score with reasons, missing skills, which real experiences to highlight | ⬜ Planned |
 | **Application tracker**: postings and application status in a database | ⬜ Planned |
 
-⭐ = headline features
 
 ### Non-goals
 
@@ -82,7 +81,7 @@ The LLM decides which tools to call and in what order. Scheduling and database w
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/<your-username>/<repo-name>.git
+git clone https://github.com/asaini434/job-matcher.git
 cd <repo-name>
 
 # 2. Create the conda environment
@@ -102,7 +101,7 @@ echo "LLM_API_KEY=your-key-here" > .env
 
 > ⬜ Planned for week 7. Results will be filled in here.
 
-- **Dataset:** 20–30 real internship postings, required skills labeled by hand
+- **Dataset:** 10-15 real internship postings, required skills labeled by hand
 - **Metrics:** precision and recall of extracted required skills; spot-checked match scores
 - **Failure analysis:** which kinds of postings the extractor gets wrong, and why
 

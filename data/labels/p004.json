@@ -1,0 +1,22 @@
+{
+    "posting_id": "p004",
+    "source_url": "https://job-boards.greenhouse.io/scaleai/jobs/4729899005s",
+    "company": "Scale AI",
+    "title": "Senior Data Analyst, Public Sector",
+    "date_posted": null,
+    "employment_type": "full_time",
+    "term": null,
+    "locations": [
+      {"city": "Washington", "state": "DC", "country": "US"}
+    ],
+    "work_mode": "hybrid",
+    "required_skills": ["SQL", "BI tools", "data modeling"],
+    "preferred_skills": ["air-gapped/federal environments","process analytics", "process mining"],
+    "degree_levels": [],
+    "grad_date_earliest": null,
+    "grad_date_latest": null,
+    "min_years_experience": 6,
+    "requires_work_authorization": null,
+    "sponsorship_available": null,
+    "accepts_cpt_opt": null
+  }

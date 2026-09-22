@@ -16,6 +16,7 @@
     "degree_levels": ["bachelors", "masters", "phd"],
     "grad_date_earliest": "2027-10-01",
     "grad_date_latest": "2029-09-30",
+    "min_years_experience": null,
     "requires_work_authorization": null,
     "sponsorship_available": null,
     "accepts_cpt_opt": null

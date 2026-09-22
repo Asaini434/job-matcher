@@ -1,0 +1,29 @@
+{
+    "posting_id": "p002",
+    "source_url": "https://www.capitalonecareers.com/job/-/-/234/98043168880",
+    "company": "Capital One",
+    "title": "Current Master's - Data Science Internship - Summer 2027",
+    "date_posted": "2026-07-20",
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "McLean", "state": "VA", "country": "US"},
+      {"city": "New York", "state": "NY", "country": "US"},
+      {"city": "San Francisco", "state": "CA", "country": "US"},
+      {"city": "Chicago", "state": "IL", "country": "US"},
+      {"city": "San Jose", "state": "CA", "country": "US"},
+      {"city": "Richmond", "state": "VA", "country": "US"},
+      {"city": "Cambridge", "state": "MA", "country": "US"},
+      {"city": "Plano", "state": "TX", "country": "US"}
+    ],
+    "work_mode": "hybrid",
+    "required_skills": ["machine learning", "data analysis", "open-source programming languages"],
+    "preferred_skills": ["Python", "R", "SQL", "inferential statistics", "relational databases", "large-scale data analysis"],
+    "degree_levels": ["masters"],
+    "grad_date_earliest": null,
+    "grad_date_latest": "2028-08-31",
+    "min_years_experience": 0.5,
+    "requires_work_authorization": null,
+    "sponsorship_available": false,
+    "accepts_cpt_opt": null
+  }
