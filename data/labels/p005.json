@@ -1,0 +1,22 @@
+{
+    "posting_id": "p005",
+    "source_url": "https://careers.freddiemac.com/us/en/job/JR17542/Technology-Intern-Summer-2027",
+    "company": "Freddie Mac",
+    "title": "Technology Intern- Summer 2027",
+    "date_posted": null,
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "McLean", "state": "VA", "country": "US"}
+    ],
+    "work_mode": "unknown",
+    "required_skills": ["Java", "C", "C++", "Python", "AI-assisted development tools", "Windows", "Microsoft Office", "Visio", "Power BI", "SharePoint"],
+    "preferred_skills": ["Agile"],
+    "degree_levels": ["bachelors"],
+    "grad_date_earliest": "2027-12-01",
+    "grad_date_latest": "2028-05-31",
+    "min_years_experience": null,
+    "requires_work_authorization": null,
+    "sponsorship_available": null,
+    "accepts_cpt_opt": null
+  }

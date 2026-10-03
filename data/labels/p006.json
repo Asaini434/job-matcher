@@ -1,0 +1,29 @@
+{
+    "posting_id": "p006",
+    "source_url": "",
+    "company": "JPMorganChase",
+    "title": "2027 Data & AI Program - Summer Internship - Analyst - United States",
+    "date_posted": "2026-08-24",
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "Chicago", "state": "IL", "country": "US"},
+      {"city": "Columbus", "state": "OH", "country": "US"},
+      {"city": "Wilmington", "state": "DE", "country": "US"},
+      {"city": "Plano", "state": "TX", "country": "US"},
+      {"city": "New York", "state": "NY", "country": "US"},
+      {"city": "Jersey City", "state": "NJ", "country": "US"},
+      {"city": "Newark", "state": "DE", "country": "US"},
+      {"city": "Palo Alto", "state": "CA", "country": "US"}
+    ],
+    "work_mode": "unknown",
+    "required_skills": [],
+    "preferred_skills": ["machine learning", "data science", "prompt engineering", "SQL", "Python", "AWS", "Copilot", "Snowflake", "Databricks", "large language models", "data management", "data governance", "data pipelines", "metadata", "data lineage", "data privacy", "experiment design", "hypothesis testing"],
+    "degree_levels": ["bachelors", "masters"],
+    "grad_date_earliest": "2027-12-01",
+    "grad_date_latest": "2028-08-31",
+    "min_years_experience": 0,
+    "requires_work_authorization": true,
+    "sponsorship_available": false,
+    "accepts_cpt_opt": false
+  }
