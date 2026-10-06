@@ -1,0 +1,22 @@
+{
+    "posting_id": "p007",
+    "source_url": "",
+    "company": "U.S. Postal Service",
+    "title": "Computer Science Intern",
+    "date_posted": null,
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "Fairfax", "state": "VA", "country": "US"}
+    ],
+    "work_mode": "onsite",
+    "required_skills": ["Microsoft Office", "Outlook", "Word", "Excel", "PowerPoint"],
+    "preferred_skills": [],
+    "degree_levels": ["bachelors", "masters"],
+    "grad_date_earliest": null,
+    "grad_date_latest": null,
+    "min_years_experience": null,
+    "requires_work_authorization": true,
+    "sponsorship_available": null,
+    "accepts_cpt_opt": null
+}
