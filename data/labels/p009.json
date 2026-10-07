@@ -1,0 +1,29 @@
+{
+    "posting_id": "p009",
+    "source_url": "https://careers.cvent.com/campus/jobs/10806",
+    "company": "Cvent",
+    "title": "Software Engineer Intern",
+    "date_posted": null,
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "Tysons Corner", "state": "VA", "country": "US"}
+    ],
+    "work_mode": "hybrid",
+    "required_skills": [
+      "Software Development",
+      "Programming",
+      "Problem Solving"
+    ],
+    "preferred_skills": [
+      "Web Development",
+      "Backend Development"
+    ],
+    "degree_levels": ["bachelors", "masters"],
+    "grad_date_earliest": null,
+    "grad_date_latest": null,
+    "min_years_experience": null,
+    "requires_work_authorization": true,
+    "sponsorship_available": null,
+    "accepts_cpt_opt": null
+  }

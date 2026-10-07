@@ -1,0 +1,31 @@
+{
+    "posting_id": "p014",
+    "source_url": "",
+    "company": "Northrop Grumman",
+    "title": "Software Engineering Intern",
+    "date_posted": null,
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "Dulles", "state": "VA", "country": "US"}
+    ],
+    "work_mode": "onsite",
+    "required_skills": [
+      "Software Engineering",
+      "Programming",
+      "Problem Solving"
+    ],
+    "preferred_skills": [
+      "Python",
+      "Java",
+      "C++",
+      "Software Testing"
+    ],
+    "degree_levels": ["bachelors", "masters"],
+    "grad_date_earliest": null,
+    "grad_date_latest": null,
+    "min_years_experience": null,
+    "requires_work_authorization": true,
+    "sponsorship_available": null,
+    "accepts_cpt_opt": null
+  }
