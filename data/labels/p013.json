@@ -1,0 +1,31 @@
+{
+    "posting_id": "p013",
+    "source_url": "",
+    "company": "ICF",
+    "title": "AI Engineer Intern",
+    "date_posted": null,
+    "employment_type": "internship",
+    "term": "Summer 2027",
+    "locations": [
+      {"city": "Reston", "state": "VA", "country": "US"}
+    ],
+    "work_mode": "onsite",
+    "required_skills": [
+      "Artificial Intelligence",
+      "Python",
+      "Software Development",
+      "Problem Solving"
+    ],
+    "preferred_skills": [
+      "Machine Learning",
+      "Generative AI",
+      "Data Science"
+    ],
+    "degree_levels": ["bachelors", "masters"],
+    "grad_date_earliest": null,
+    "grad_date_latest": null,
+    "min_years_experience": null,
+    "requires_work_authorization": true,
+    "sponsorship_available": null,
+    "accepts_cpt_opt": null
+  }
