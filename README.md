@@ -1,136 +1,119 @@
-# Job Posting Matcher Agent
+# job-matcher
 
-> 🚧 **Status: In development** (started September 2026). Features below are marked ✅ done or ⬜ planned. This README will be updated as each milestone ships.
+A tool I'm building to help with my own Summer 2027 internship search. It pulls internship postings from company job boards, turns each one into a structured record (skills, degree, grad dates, location, work authorization), compares it against my resume, and keeps track of which skills keep showing up across the roles I'm looking at.
 
-An LLM-powered agent that tracks internship postings, extracts their requirements into structured data, matches them against my resume, and surfaces which skills the market is asking for, so I can apply to the right roles early.
+Still in progress. I started it in September 2026 and I'm using it on real applications as I build it.
 
-I'm building it for my own Summer 2027 internship search and using it on real applications as I go.
+## Why build this instead of pasting postings into ChatGPT
 
----
+Pasting one posting and one resume into a chatbot works for a single job, but it falls short for a whole search:
 
-## Why not just paste postings into ChatGPT?
+- It doesn't watch for new postings. Most internships are reviewed on a rolling basis, so I want to know when a matching role opens, not find out two weeks later.
+- It doesn't remember anything between postings, so it can't tell me which skills show up most across 50+ roles or which of those I'm missing.
+- The output format changes every time, so nothing can be stored or compared.
+- There's no way to know how often it gets things wrong. I'm measuring extraction accuracy against postings I labeled myself (see Evaluation below).
 
-A chatbot can compare one posting to one resume. It can't:
-
-- **Watch for new postings.** It only responds when asked. This agent checks target companies' job boards on a schedule and alerts me when a matching role opens. Most companies review applications on a rolling basis, so applying early matters.
-- **Remember across postings.** This agent stores every posting it has seen, so it can answer questions like *"Which skills appear most across the 60 roles I'm targeting, and which am I missing?"*
-- **Tell you how accurate it is.** I measure this agent's extraction accuracy against postings I labeled by hand (see [Evaluation](#evaluation)).
-- **Give consistent output.** Every posting becomes the same structured record, stored and searchable.
-
----
-
-## Features
+## What it does (planned)
 
 | Feature | Status |
 |---|---|
-| **New-posting alerts**: scheduled checks of target companies' job boards | ⬜ Planned |
-| **Skill trend insights**: most-requested skills across saved postings, and my gaps | ⬜ Planned |
-| **Requirement extraction**: posting text → structured data (required and preferred skills, degree, location, work authorization) | ⬜ Planned |
-| **Resume match and gap report**: fit score with reasons, missing skills, which real experiences to highlight | ⬜ Planned |
-| **Application tracker**: postings and application status in a database | ⬜ Planned |
+| Requirement extraction: posting text to a structured record | In progress |
+| Resume match and gap report: fit, missing skills, which of my experiences to highlight | Planned |
+| Application tracker in SQLite | Planned |
+| Skill trends: most-requested skills across saved postings, and my gaps | Planned |
+| New-posting alerts: scheduled checks of target companies' job boards | Planned |
 
+Things it won't do:
 
-### Non-goals
+- Auto-apply to jobs
+- Make up resume content. Suggestions only use experience I actually have.
+- Scrape LinkedIn, Indeed, or any site whose terms don't allow it
 
-- Does **not** auto-apply to jobs
-- Does **not** invent resume content. Suggestions only draw on real experience.
-- Does **not** scrape LinkedIn, Indeed, or any site whose terms prohibit it
-
----
-
-## Architecture
+## How it's put together
 
 ```
-[Posting text / job-board feed]      [My resume]
-              │                           │
-              ▼                           ▼
-        ┌──────────────── Agent (LLM + tools) ────────────────┐
-        │ tools: fetch_postings, extract_requirements,        │
-        │        match_resume, check_tracker, save_posting    │
-        └─────────────────────────────────────────────────────┘
-              │                                   │
-              ▼                                   ▼
-        SQLite database  ─────────────►  Skill trends report
-              │
-              ▼
-     Scheduled check  ──►  Alert (new matching posting)
+posting text / job board feed        my resume
+            |                            |
+            v                            v
+   +-------------- agent (LLM + tools) --------------+
+   | fetch_postings, extract_requirements,           |
+   | match_resume, check_tracker, save_posting       |
+   +-------------------------------------------------+
+            |                            |
+            v                            v
+      SQLite database  ------------>  skill trends report
+            |
+            v
+   scheduled check  ---->  alert for a new matching posting
 ```
 
-The LLM decides which tools to call and in what order. Scheduling and database writes stay as regular code, so they're predictable and testable. Design reasoning is in [`docs/DESIGN.md`](docs/DESIGN.md).
+The LLM only does the parts that need reading comprehension: pulling requirements out of messy posting text and judging resume fit. Everything with a definite right answer (scheduling, duplicate detection, database writes, checking whether my grad date falls in a posting's window) is regular Python, so it's predictable and testable.
 
----
+More detail, including the data model and the open questions I haven't settled yet, is in [docs/DESIGN.md](docs/DESIGN.md).
 
-## Tech stack
+## Stack
 
-| Part | Choice |
-|---|---|
-| Language | Python |
-| LLM provider | _TBD_ |
-| Backend | FastAPI |
-| Data validation | Pydantic |
-| Database | SQLite |
-| Scheduler | _TBD_ |
-| Tests / CI | pytest, GitHub Actions |
-| Hosting | _TBD_ |
+- Python 3.11
+- Pydantic for the data model and for validating LLM output
+- SQLite for storage
+- LLM: comparing Gemini (free tier) against a local model through Ollama before picking one
+- FastAPI, a scheduler, and hosting are still to be decided
+- pytest and GitHub Actions for tests and CI
 
----
+## Running it
 
-## Getting started
-
-> ⚠️ Setup steps will be finalized once the first milestone is built.
+Not much to run yet. Current setup:
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/asaini434/job-matcher.git
-cd <repo-name>
+git clone https://github.com/Asaini434/job-matcher.git
+cd job-matcher
 
-# 2. Create the conda environment
 conda create -n jobmatcher python=3.11
 conda activate jobmatcher
-
-# 3. Install dependencies (requirements.txt added in week 2)
 pip install -r requirements.txt
 
-# 4. Add your LLM API key to a .env file (never commit this file)
-echo "LLM_API_KEY=your-key-here" > .env
-```
+# API key goes in .env, which is gitignored
+cp .env.example .env    # then paste your Gemini key into .env
 
----
+# check that every hand label matches the data model
+PYTHONPATH=src python scripts/validate_labels.py
+```
 
 ## Evaluation
 
-> ⬜ Planned for week 7. Results will be filled in here.
+I labeled 14 real postings following the rules in [docs/LABELLING.md](docs/LABELLING.md). Four of them are a dev set I use while writing prompts; the other ten are held out as the test set and only used to report results. Ten postings is a small sample, so the numbers will be a rough estimate.
 
-- **Dataset:** 10-15 real internship postings, required skills labeled by hand
-- **Metrics:** precision and recall of extracted required skills; spot-checked match scores
-- **Failure analysis:** which kinds of postings the extractor gets wrong, and why
+What I'll measure:
 
-| Metric | Result |
-|---|---|
-| Required-skill precision | _TBD_ |
-| Required-skill recall | _TBD_ |
+- Precision and recall on required skills
+- Exact-match accuracy on fields like employment type, work mode, and grad dates
+- How often the model fills in something the posting never said (for example, guessing a sponsorship policy)
 
----
+| Metric | Gemini | Local (Ollama) |
+|---|---|---|
+| Required-skill precision | - | - |
+| Required-skill recall | - | - |
 
 ## Roadmap
 
-- [ ] Week 1: Design doc, repo setup, hand-label 20–30 postings
-- [ ] Week 2: Requirement extraction (structured output)
-- [ ] Week 3: Resume parsing, match and gap logic
-- [ ] Week 4: Agent loop and tools
-- [ ] Week 5: SQLite tracker and skill trends ⭐
-- [ ] Week 6: New-posting alerts ⭐
-- [ ] Week 7: Evaluation, tests, CI, deployment
-- [ ] Week 8: Demo video, polish
+- [x] Week 1: design doc, repo setup, labeled postings
+- [ ] Week 2: requirement extraction, compare two LLM providers
+- [ ] Week 3: resume parsing, match and gap logic
+- [ ] Week 4: agent loop and tools
+- [ ] Week 5: SQLite tracker and skill trends
+- [ ] Week 6: new-posting alerts
+- [ ] Week 7: evaluation, tests, CI, deployment
+- [ ] Week 8: demo and cleanup
 
----
+## Notes so far
 
-## What I learned
+Labeling postings by hand turned up more design problems than I expected:
 
-_To be written as the project progresses._
-
----
+- Many postings ask for "at least one of Java, Python, C++...", which my data model can't express yet. Listing all of them as required makes the gap report look worse than it should.
+- Job links carry tracking parameters (`?utm_source=...`), so the same posting can show up under different URLs. Duplicate checks need to strip those or use the company's requisition ID.
+- Some careers pages load the job description with JavaScript, so a plain HTTP request only gets an empty page.
+- "Full time" on an internship usually describes the hours, not the type of role.
 
 ## Author
 
-**Ananya Saini**, M.S. Computer Science, George Mason University
+Ananya Saini, M.S. Computer Science, George Mason University
