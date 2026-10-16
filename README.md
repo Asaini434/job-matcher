@@ -94,6 +94,8 @@ What I'll measure:
 | Required-skill precision | - | - |
 | Required-skill recall | - | - |
 
+The raw posting text isn't in the repo since it's the companies' content. Each label includes the posting's source URL.
+
 ## Roadmap
 
 - [x] Week 1: design doc, repo setup, labeled postings
