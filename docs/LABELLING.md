@@ -56,8 +56,6 @@ Each entry in `locations`: `{"city": "Seattle", "state": "WA", "country": "US"}`
 - **min_years_experience:** the minimum stated, as a number ("6+ years" → 6, "6 months" → 0.5). If a range, use the lower end. Not a skill; never put it in the skills lists.
 - **"e.g." examples:** label the category ("BI tools"), not the examples in parentheses (Tableau, Metabase).
 
-## Skill vocabulary
-(Add names here as you use them.)
 
 ## Tricky cases log
 
